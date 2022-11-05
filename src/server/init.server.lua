@@ -1,13 +1,17 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local Stack = require(ReplicatedStorage.Common.Stack)
 local Queue = require(ReplicatedStorage.Common.Queue)
+local CircularQueue = require(ReplicatedStorage.Common.CircularQueue)
 local LinkedList = require(ReplicatedStorage.Common.LinkedList)
 
-local linkedList = LinkedList()
-for i = 1,5 do
-    linkedList:append(i)
-end
-while not linkedList:isEmpty() do
-    print(linkedList:removeLast())
-    print(linkedList)
-end
+local queue = CircularQueue(5)
+
+repeat
+    queue:enqueue(math.random(1,10))
+    print(queue)
+until queue:isFull()
+
+repeat
+    queue:dequeue()
+    print(queue)
+until queue:isEmpty()
