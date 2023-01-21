@@ -1,0 +1,10 @@
+[package]
+name = "fly-san/data-structures-in-luau"
+version = "0.1.0"
+registry = "https://github.com/UpliftGames/wally-index"
+authors = ["fly_san"]
+realm = "shared"
+license = "MIT"
+description = "Simple data structures in luau"
+
+[dependencies]
