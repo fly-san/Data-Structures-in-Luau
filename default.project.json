@@ -4,7 +4,8 @@
     "$className": "DataModel",
 
     "DataStructures" : {
-      "$path": "src/shared"
+      "$path": "src"
     }
+
   }
 }
