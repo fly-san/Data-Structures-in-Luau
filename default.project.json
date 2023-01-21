@@ -5,7 +5,6 @@
 
     "DataStructures" : {
       "$path": "src"
-    }
-
+    }    
   }
 }

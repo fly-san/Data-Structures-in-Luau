@@ -1,0 +1,28 @@
+{
+    "name": "data-structures-in-luau-test",
+    "servePort": 40000,
+    "tree": {
+        "$className": "DataModel",
+        "ReplicatedStorage": {
+            "$className": "ReplicatedStorage",
+            "DataStructures": {
+                "$path": "src"
+            }
+        },
+        "TestService": {
+            "$className": "TestService",
+            "$properties": {
+                "ExecuteWithStudioRun": true
+            },
+            "TestEZ": {
+                "$path": "Packages/TestEZ.lua"
+            },
+            "run": {
+                "$path": "runTests.server.lua"
+            },
+            "Tests" : {
+                "$path": "Tests"
+            }
+        }
+    }
+}
