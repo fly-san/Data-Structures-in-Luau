@@ -7,6 +7,9 @@
             "$className": "ReplicatedStorage",
             "DataStructures": {
                 "$path": "src"
+            },
+            "Packages": {
+                "$path" : "Packages"
             }
         },
         "TestService": {
