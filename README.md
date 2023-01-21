@@ -23,8 +23,24 @@ Example:
 - Methods use PascalCase, e.g. `stack:Push(1)`
 - Class functions use camelCase, as in `Stack.tostring(stack)`
 
+### Caveats
 
-Currently implemented:
+Some structures have internal `Data` or `Size` properties, but these should not be used externally under normal circumstances. Instead, you should use the provided structure API. Size can usually be obtained with `:GetSize()`.
+
+# Installation
+
+You can use [Wally](https://github.com/UpliftGames/wally), with this repository as a dependency.
+
+```toml
+# Wally config
+...
+[dependencies]
+DataStructures = "fly-san/data-structures-in-luau@0.1.4"
+```
+
+# Data Structures:
+
+More data structures, and documentation, to come.
 
 ### Stack
 
