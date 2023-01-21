@@ -2,7 +2,7 @@ local Queue = {}
 Queue.__index = Queue
 
 function Queue.tostring(queue)
-    if queue:size() == 0 then return "[]" end
+    if queue:GetSize() == 0 then return "[]" end
     local result = "["
     if queue.Tail >= queue.Head then
         local i = queue.Head
@@ -32,24 +32,24 @@ function Queue.tostring(queue)
     return result .. "]"
 end
 
-function Queue:isFull()
+function Queue:IsFull()
     return (self.Head == 1 and self.Tail == self.Capacity) or (self.Head == self.Tail + 1)
 end
 
-function Queue:isEmpty()
-    return self:size() == 0
+function Queue:IsEmpty()
+    return self:GetSize() == 0
 end
 
-function Queue:size()
+function Queue:GetSize()
     return self.Size
 end
 
-function Queue:enqueue(obj)
-    if self:isFull() then
+function Queue:Enqueue(obj)
+    if self:IsFull() then
         return
     end
 
-    if self:isEmpty() then
+    if self:IsEmpty() then
         self.Head = 1
     end
 
@@ -61,8 +61,8 @@ function Queue:enqueue(obj)
     return self
 end
 
-function Queue:dequeue()
-    if self:isEmpty() then
+function Queue:Dequeue()
+    if self:IsEmpty() then
         return
     end
 
@@ -73,7 +73,7 @@ function Queue:dequeue()
 
     self.Data[self.Head] = nil
 
-    if self:isEmpty() or self.Head == self.Tail then
+    if self:IsEmpty() or self.Head == self.Tail then
         self.Head = 0
         self.Tail = 0
     else

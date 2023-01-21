@@ -3,7 +3,7 @@ local LinkedListNode = require(script.LinkedListNode)
 local LinkedList = {}
 LinkedList.__index = LinkedList
 
-function LinkedList:append(data: any)
+function LinkedList:Append(data: any)
     local node = LinkedListNode(data)
     self.Size += 1
     if self.Head == nil then
@@ -33,7 +33,7 @@ function LinkedList.tostring(linkedList)
     return result .. "]"
 end
 
-function LinkedList:findAt(index: number)
+function LinkedList:FindAt(index: number)
     local currentIndex = 1
     local currentNode = self.Head
     while currentNode ~= nil do
@@ -46,19 +46,19 @@ function LinkedList:findAt(index: number)
     return currentNode
 end
 
-function LinkedList:removeFirst()
-    self:removeAt(1)
+function LinkedList:RemoveFirst()
+    self:RemoveAt(1)
 end
 
-function LinkedList:removeLast()
-    self:removeAt(self.Size)
+function LinkedList:RemoveLast()
+    self:RemoveAt(self.Size)
 end
 
-function LinkedList:isEmpty()
+function LinkedList:IsEmpty()
     return self.Size == 0
 end
 
-function LinkedList:removeAt(index: number)
+function LinkedList:RemoveAt(index: number)
     assert(index > 0)
     assert(index <= self.Size)
 

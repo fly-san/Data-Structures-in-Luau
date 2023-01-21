@@ -1,14 +1,14 @@
 local Stack = {}
 Stack.__index = Stack
 
-function Stack:push(obj: any)
+function Stack:Push(obj: any)
     self.StackPointer += 1
     table.insert(self.Data, obj)
     return self
 end
 
-function Stack:pop()
-    if self:isEmpty() then
+function Stack:Pop()
+    if self:IsEmpty() then
         return
     end
 
@@ -19,20 +19,20 @@ function Stack:pop()
     return obj
 end
 
-function Stack:clear()
+function Stack:Clear()
     self.Data = nil
     self.StackPointer = 0
 end
 
-function Stack:isEmpty()
+function Stack:IsEmpty()
     return self.StackPointer == 0
 end
 
-function Stack:size()
+function Stack:GetSize()
     return self.StackPointer
 end
 
-function Stack:peek()
+function Stack:Peek()
     return self.Data[self.StackPointer]
 end
 
@@ -40,7 +40,7 @@ function Stack.tostring(stack)
     local result = "["
     for i,d in ipairs(stack.Data) do
         result ..=tostring(d)
-        if i < stack:size() then
+        if i < stack:GetSize() then
             result ..= ", "
         end
     end
