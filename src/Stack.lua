@@ -4,6 +4,7 @@ Stack.__index = Stack
 function Stack:push(obj: any)
     self.StackPointer += 1
     table.insert(self.Data, obj)
+    return self
 end
 
 function Stack:pop()

@@ -42,6 +42,7 @@ function Queue:enqueue(obj)
     self.Data[self.Tail] = obj
 
     self.Size += 1
+    return self
 end
 
 function Queue:dequeue()
