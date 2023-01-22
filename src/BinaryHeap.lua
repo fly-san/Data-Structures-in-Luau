@@ -7,14 +7,13 @@ function BinaryHeap:Insert(data: any)
 
     self.Data[index] = data
 
-    self:SiftUp(index)
-    return index
+    return self:SiftUp(index)
 end
 
 function BinaryHeap:Update(index: number, newItem: any)
     local oldItem = self.Data[index]
     self.Data[index] = newItem
-    if self.Comparator(newItem, oldItem) > 0 then
+    if self.Comparator(newItem, oldItem) < 0 then
         self:SiftUp(index)
         return
     end
@@ -25,6 +24,14 @@ function BinaryHeap:HasAt(index, item)
     return self.Data[index] == item
 end
 
+function BinaryHeap:IsEmpty()
+    return self.Size == 0
+end
+
+function BinaryHeap:IsFull()
+    return self.Size == self.Capacity
+end
+
 function BinaryHeap:SiftUp(index)
     local parentIndex = math.floor(math.abs(index-1)/2)
     while index > 0 and self.Comparator(self.Data[index], self.Data[parentIndex]) <= 0 do
@@ -33,53 +40,29 @@ function BinaryHeap:SiftUp(index)
         index = parentIndex
         parentIndex = math.floor(math.abs(index-1)/2)
     end
+    return index
 end
 
-
---[[
-   maxIndex = i
-
-    # Left Child
-    l = leftChild(i)
-
-    if (l <= size and H[l] > H[maxIndex]) :
-
-        maxIndex = l
-
-    # Right Child
-    r = rightChild(i)
-
-    if (r <= size and H[r] > H[maxIndex]) :
-
-        maxIndex = r
-
-    # If i not same as maxIndex
-    if (i != maxIndex) :
-
-        swap(i, maxIndex)
-        shiftDown(maxIndex)
-
-]]
 function BinaryHeap:SiftDown(index)
     while true do
-        local maxIndex = index
+        local swapIndex = index
         local indexLeft = index * 2 + 1;
         local indexRight = index * 2 + 2;
 
-        if indexLeft < self:GetSize() and self.Comparator(self.Data[indexLeft], self.Data[maxIndex]) < 0 then
-            maxIndex = indexLeft
+        if indexLeft < self:GetSize() and self.Comparator(self.Data[indexLeft], self.Data[swapIndex]) < 0 then
+            swapIndex = indexLeft
         end
 
-        if indexRight < self:GetSize() and self.Comparator(self.Data[indexRight], self.Data[maxIndex]) < 0  then
-            maxIndex = indexRight
+        if indexRight < self:GetSize() and self.Comparator(self.Data[indexRight], self.Data[swapIndex]) < 0  then
+            swapIndex = indexRight
         end
 
-        if index == maxIndex then
+        if index == swapIndex then
             return
         end
 
-        self:Swap(index, maxIndex)
-        index = maxIndex
+        self:Swap(index, swapIndex)
+        index = swapIndex
     end
 end
 

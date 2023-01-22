@@ -15,7 +15,6 @@ return function()
     end)
 
     describe("min heap", function()
-
         it("should insert [-10,10[ and peek -10", function()
             local heap = Heap(10)
             local set = {}
@@ -57,9 +56,9 @@ return function()
             heap:Insert(2)
             local x = heap:Insert(-5)
             heap:Update(x, 10)
-            expect(heap:Pop()).to.equal(-5)
             expect(heap:Pop()).to.equal(1)
             expect(heap:Pop()).to.equal(2)
+            expect(heap:Pop()).to.equal(10)
         end)
     end)
 
