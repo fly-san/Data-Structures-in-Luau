@@ -1,10 +1,6 @@
 {
   "name": "data-structures-in-luau",
   "tree": {
-    "$className": "DataModel",
-
-    "DataStructures" : {
-      "$path": "src"
-    }    
+    "$path": "src"
   }
 }
